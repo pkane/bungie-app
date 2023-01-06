@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Box, Section, Heading, Button } from 'react-bulma-components';
+import classes from './MarkdownConverterComponent.module.css';
 
 // PROBLEM 2
 
@@ -123,12 +124,12 @@ export default function MarkdownConverterComponent() {
 		<Box>
 			<Heading size="4">Here we can convert valid markdown into HTML!</Heading>
 			<Heading subtitle size="6">Paste in valid markdown text content into the text area below.</Heading>			
-			<Section>
+			<Section className={classes.markdownTextContainer}>
 				<textarea value={testMarkdown.text} onChange=""></textarea>			
-				<Button onClick={convertMarkdownToMarkup}>Convert</Button>			
+				<Button onClick={convertMarkdownToMarkup} size="medium" color="info">Convert</Button>			
 			</Section>
-			<Section>
-				<div dangerouslySetInnerHTML={{__html: convertedText}}/>
+			<Section className={classes.HtmlTextContainer}>
+				<div className={classes.textContainer} dangerouslySetInnerHTML={{__html: convertedText}}/>
 			</Section>
 		</Box>
 	)

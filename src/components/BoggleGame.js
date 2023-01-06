@@ -144,7 +144,7 @@ export default function BoggleGame() {
 							)
 						})}						
 					</div>
-					<Button onClick={getWordsFromChars} disabled={!buttonEnabled}>Boggle!</Button>
+					<Button onClick={getWordsFromChars} disabled={!buttonEnabled} size="medium" color="info">Boggle!</Button>
 					<ul className={classes.boggleFinalWordsList}>
 						{finalWordsList.map((item, index) => {
 							// 5. Render word list to page.

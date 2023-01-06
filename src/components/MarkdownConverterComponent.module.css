@@ -1,0 +1,15 @@
+.section {
+    padding: 1em 2em;	
+}
+
+.markdownTextContainer,
+.HtmlTextContainer {
+	padding: 2em 2em 0;
+}
+
+.textContainer,
+textarea {
+	border: 1px solid;
+	min-height: 100px;
+	padding: 2em;
+}
