@@ -29,19 +29,24 @@ const testMarkdown = {
 export default function MarkdownConverterComponent() {
 
 	const [convertedText, setConvertedText] = useState('')
+	const [markdownText, setMarkdownText] = useState('');
 
 	/*
 		2. On click, text content is parsed and tests called with regex matching conditions
 	*/
 	const convertMarkdownToMarkup = () => {
 		// Because our RegEx is imperfect, handle lists separately with String/Array methods
-		let convertedText = parseListsFromMarkdown(testMarkdown.text);
+		let convertedText = parseListsFromMarkdown(markdownText);
 
 		// Check for additional matches (with capture group passed as parameter) based on which starting test was passed
 		convertedText = parseMarkdown(convertedText);
 
 		// Update html state with new constructed template literal
 		setConvertedText(convertedText);
+	}
+
+	const getMarkdownFromText = (e) => {
+		setMarkdownText(e.target.value)
 	}
 
 	function parseListsFromMarkdown(markdownText) {
@@ -125,7 +130,7 @@ export default function MarkdownConverterComponent() {
 			<Heading size="4">Here we can convert valid markdown into HTML!</Heading>
 			<Heading subtitle size="6">Paste in valid markdown text content into the text area below.</Heading>			
 			<Section className={classes.markdownTextContainer}>
-				<textarea value={testMarkdown.text} onChange=""></textarea>			
+				<textarea onChange={(e)=>getMarkdownFromText(e)}></textarea>
 				<Button onClick={convertMarkdownToMarkup} size="medium" color="info">Convert</Button>			
 			</Section>
 			<Section className={classes.HtmlTextContainer}>
