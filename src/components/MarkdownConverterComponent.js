@@ -54,34 +54,40 @@ export default function MarkdownConverterComponent() {
 
 		// Unordered lists
 		const unorderedMatchesArray = [...htmlText.matchAll(/[\-|\+|\*](?!  ) {1}(.*)/igm)];
-		const unorderedMatchesIndices = {
-			first: unorderedMatchesArray[0].index,
-			last: unorderedMatchesArray[unorderedMatchesArray.length-1].index + unorderedMatchesArray[unorderedMatchesArray.length-1][0].length + ('<ul></ul>'.length * unorderedMatchesArray.length) - '- '.length
-		}
 
 		if (unorderedMatchesArray.length > 0) {
-			htmlText = htmlText.replace(/[\-|\+|\*](?!  ) {1}(.*)/igm, '<li>$1</li>').trim();
-
-			htmlText = Array.from(htmlText.split(''));
-			htmlText.splice(unorderedMatchesIndices.first, 0, ...'<ul>'.split(''));
-			htmlText.splice(unorderedMatchesIndices.last, 0, ...'</ul>'.split(''));
-			htmlText = htmlText.join('');
-		}
+			const unorderedMatchesIndices = {
+				first: unorderedMatchesArray[0].index,
+				last: unorderedMatchesArray[unorderedMatchesArray.length-1].index + unorderedMatchesArray[unorderedMatchesArray.length-1][0].length + ('<ul></ul>'.length * unorderedMatchesArray.length) - '- '.length
+			}
+	
+			if (unorderedMatchesArray.length > 0) {
+				htmlText = htmlText.replace(/[\-|\+|\*](?!  ) {1}(.*)/igm, '<li>$1</li>').trim();
+	
+				htmlText = Array.from(htmlText.split(''));
+				htmlText.splice(unorderedMatchesIndices.first, 0, ...'<ul>'.split(''));
+				htmlText.splice(unorderedMatchesIndices.last, 0, ...'</ul>'.split(''));
+				htmlText = htmlText.join('');
+			}
+		}	
 
 		// Ordered lists
 		const orderedMatchesArray = [...htmlText.matchAll(/\d+\.\s(.*)/igm)];
-		const orderedMatchesIndices = {
-			first: orderedMatchesArray[0].index,
-			last: orderedMatchesArray[orderedMatchesArray.length-1].index + orderedMatchesArray[orderedMatchesArray.length-1][0].length + ('<ol></ol>'.length * orderedMatchesArray.length) - '1. '.length
-		}
 
 		if (orderedMatchesArray.length > 0) {
-			htmlText = htmlText.replace(/\d+\.\s(.*)/igm, '<li>$1</li>'.trim())
-
-			htmlText = Array.from(htmlText.split(''));
-			htmlText.splice(orderedMatchesIndices.first, 0, ...'<ol>'.split(''));
-			htmlText.splice(orderedMatchesIndices.last, 0, ...'</ol>'.split(''));
-			htmlText = htmlText.join('');
+			const orderedMatchesIndices = {
+				first: orderedMatchesArray[0].index,
+				last: orderedMatchesArray[orderedMatchesArray.length-1].index + orderedMatchesArray[orderedMatchesArray.length-1][0].length + ('<ol></ol>'.length * orderedMatchesArray.length) - '1. '.length
+			}
+	
+			if (orderedMatchesArray.length > 0) {
+				htmlText = htmlText.replace(/\d+\.\s(.*)/igm, '<li>$1</li>'.trim())
+	
+				htmlText = Array.from(htmlText.split(''));
+				htmlText.splice(orderedMatchesIndices.first, 0, ...'<ol>'.split(''));
+				htmlText.splice(orderedMatchesIndices.last, 0, ...'</ol>'.split(''));
+				htmlText = htmlText.join('');
+			}
 		}
 
 		return htmlText.trim();
