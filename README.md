@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+# Bungie App - A Candidate Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi! Thank you very much for taking a look at my exercise. Below you'll see how to install and run the app.
+But first, let me outline what you're going to see.
+
+## Project Overview
+
+_A word about technical choices:_
+
+This app was built with React. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I chose React because:
+- It has lightning-fast rendering engine, 
+- It's got excellent support for libraries, like the lightweight [Bulma Component library](https://react-bulma.dev/en/) 
+- Overall, its suitability for solving these problems in a fun and interactive way.
+
+This exercise consists of two problems.
+- _Bungie Boggle_
+- _Markdown Converter_
+
+### Bungie Boggle
+
+This is a fun "reduction" of a 9-letter Boggle board, made interactive!
+Try entering different combinations of unique letters, then click "Boggle!" and see what words come back.
+There might even be a secret hidden in there, if you go hunting!
+
+### Markdown Converter
+
+This is a tool, written from scratch to convert markdown text to HTML.
+This was a big challenge! Especially creating custom Regular Expressions to match for unique string sequences, then handle capture groups.
+But it proved a very fun and rewarding one. It's super fast too!
+
 
 ## Available Scripts
 

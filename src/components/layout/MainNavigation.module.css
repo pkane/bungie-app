@@ -1,0 +1,23 @@
+.header {
+    background-color: aliceblue;
+    border-top: 1px solid rgb(101 101 102);
+    border-bottom: 1px solid rgb(101 101 102);
+    padding: 0.5em;
+}
+
+.headerTitle {
+	visibility: hidden;
+}
+
+.navbarLink {
+	margin: 0 1em 0 0;
+}
+
+img.headerLogo {
+	max-height: none;
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 1.25em;
+}
