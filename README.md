@@ -1,4 +1,7 @@
-# Bungie Boggle and Markdown Converter
+# Boggle and Markdown Converter
+
+![image](https://github.com/pkane/bungie-app/assets/1375526/265c4954-1fed-46c8-8403-c88738c0051d)
+
 
 ## Project Overview
 
