@@ -1,7 +1,4 @@
-# Bungie App - A Candidate Exercise
-
-Hi! Thank you very much for taking a look at my exercise. Below you'll see how to install and run the app.
-But first, let me outline what you're going to see.
+# Bungie Boggle and Markdown Converter
 
 ## Project Overview
 
